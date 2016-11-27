@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TodoList = ({
+	onDeleteTodo,
 	todos
 }) => (
 	<section>
@@ -11,6 +12,7 @@ const TodoList = ({
 					<div className="view">
 						<input className="toggle" type="checkbox" />
 						<label>{todo.get('title')}</label>
+						<button className="destroy" onClick={onDeleteTodo(index)}></button>
 					</div>
 				</li>		
 			)).toJS()
