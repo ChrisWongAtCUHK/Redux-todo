@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immutable';
-import todo from './data/todoReducers.jsx'; 
+import todoReducers from './data/todoReducers.jsx'; 
 
-const rootReducer = combineReducers({todo});
+const rootReducer = combineReducers({todoReducers});
 
 export default rootReducer;

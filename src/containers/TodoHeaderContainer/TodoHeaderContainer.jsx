@@ -8,7 +8,7 @@ import {
 
 export default connect(
 	(state) => ({
-		todo: state.getIn(['todo', 'todo'])
+		todo: state.getIn(['todoReducers', 'todo'])
 	}),
 	(dispatch) =>({
 		onKeyDown: (event) => {
