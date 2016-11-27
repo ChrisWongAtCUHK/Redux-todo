@@ -9,9 +9,7 @@ const Main = () => (
 		<header id="header">
 			<TodoHeaderContainer />
 		</header>
-		<section>
-			<TodoListContainer />
-		</section>
+		<TodoListContainer />
 		<footer id="footer">
 		</footer>
 	</section>

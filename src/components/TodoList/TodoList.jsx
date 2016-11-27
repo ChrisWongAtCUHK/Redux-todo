@@ -3,15 +3,20 @@ import React from 'react';
 const TodoList = ({
 	todos
 }) => (
-	<div>
+	<section>
 		<ul id="todo-list">
 		{
 			todos.map((todo, index) => (
-				<li key={index}>{todo.get('title')}</li>		
+				<li key={index} className={todo.get('completed')}>
+					<div className="view">
+						<input className="toggle" type="checkbox" />
+						<label>{todo.get('title')}</label>
+					</div>
+				</li>		
 			)).toJS()
 		}
 		</ul>
-	</div>
+	</section>
 );
 
 export default TodoList;
