@@ -13,8 +13,14 @@ const todoReducers = handleActions({
 	},
 	EDIT_TODO: (state, { payload }) => {
 		let editedTodo = state.get('todos').get(payload);
-		console.log(editedTodo.get('title'));
 		return state.set('editedTodo', editedTodo);
+	},
+	SAVE_EDIT: (state, { payload }) => {
+		let todo = state.get('todos').get(payload.key).set('title', payload.title);
+		let todos = state.get('todos').set(payload.key, todo);
+
+		return state.merge({'todos': todos});
+						 
 	},
 	CHANGE_TITLE: (state, { payload }) => {
 		return state.merge({ 'todo': payload });

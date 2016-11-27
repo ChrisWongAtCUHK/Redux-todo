@@ -17,6 +17,8 @@ function classNames(todo, editedTodo){
 const TodoList = ({
 	onDeleteTodo,
 	onEditTodo,
+	onKeyDown,
+	onSaveEdit,
 	todos,
 	editedTodo
 }) => (
@@ -31,7 +33,7 @@ const TodoList = ({
 						<label onDoubleClick={onEditTodo(index)}>{todo.get('title')}</label>
 						<button className="destroy" onClick={onDeleteTodo(index)}></button>
 					</div>
-					<input type="text" className="edit"/>
+					<input type="text" className="edit" value={todo.get('title')} data-key={index} onChange={onSaveEdit}/>
 				</li>		
 			)).toJS()
 		}

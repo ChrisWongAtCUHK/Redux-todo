@@ -3,10 +3,12 @@ import {
 	CREATE_TODO,
 	DELETE_TODO,
 	EDIT_TODO,
+	SAVE_EDIT,
 	CHANGE_TITLE
 } from '../constants/actionTypes.jsx';
 
 export const createTodo = createAction(CREATE_TODO);
 export const deleteTodo = createAction(DELETE_TODO);
 export const editTodo = createAction(EDIT_TODO);
+export const saveEdit = createAction(SAVE_EDIT);
 export const changeTitle = createAction(CHANGE_TITLE);
