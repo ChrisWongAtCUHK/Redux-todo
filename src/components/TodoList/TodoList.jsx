@@ -1,5 +1,16 @@
 import React from 'react';
 
+/*
+ * Class names, space delimiter
+ * */
+function classNames(todo){
+	let names = [];
+	if(todo.get('completed')){
+		names.push('completed');
+	}
+	return names.join(' ');
+}
+
 const TodoList = ({
 	onDeleteTodo,
 	todos
@@ -8,7 +19,8 @@ const TodoList = ({
 		<ul id="todo-list">
 		{
 			todos.map((todo, index) => (
-				<li key={index} className={todo.get('completed')}>
+				<li key={index} 
+						className={`${classNames(todo)}`}>
 					<div className="view">
 						<input className="toggle" type="checkbox" />
 						<label>{todo.get('title')}</label>

@@ -20,7 +20,7 @@ export default connect(
 			}
 		},
 		onChangeTitle: (event) => {
-			dispatch(changeTitle({ title: event.target.value }));
+			dispatch(changeTitle({ title: event.target.value, completed: false }));
 		},
 		onCreateTodo: () => (
 			dispatch(createTodo())
