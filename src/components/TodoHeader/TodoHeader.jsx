@@ -1,12 +1,12 @@
 import React from 'react';
 
 const TodoHeader = ({
-	onChangeText,
+	onChangeTitle,
 	onCreateTodo,
 	todo
 }) => (
 	<form>
-		<input type="text" id="new-todo" placeholder="Enter Todo List" autoFocus/>
+		<input type="text" id="new-todo" placeholder="Enter Todo List" onChange={onChangeTitle} autoFocus/>
 	</form>
 );
 

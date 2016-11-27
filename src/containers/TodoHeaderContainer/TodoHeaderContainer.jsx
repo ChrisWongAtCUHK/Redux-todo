@@ -14,9 +14,8 @@ export default connect(
 		onChangeTitle: (event) => (
 			dispatch(changeTitle({ title: event.target.value }))
 		),
-		onCreateTodo: () => {
-			dispatch(createTodo());
-			dispatch(changeTitle({ title: ''}));
-		}
+		onCreateTodo: () => (
+			dispatch(createTodo())
+		)
 	})
 )(TodoHeader);
