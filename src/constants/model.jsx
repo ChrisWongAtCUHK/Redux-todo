@@ -6,7 +6,7 @@ export const TodoState = Immutable.fromJS({
 	'todos': todos,
 	'todo': {
 		id: '',
-		text: '',
+		title: '',
 		completed: false
 	}
 });

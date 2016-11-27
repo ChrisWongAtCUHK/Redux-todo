@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../base.css'; 
 import '../../index.css'; 
-import TodoHeader from '../TodoHeader';
+import TodoHeader from '../../containers/TodoHeaderContainer';
 
 const Main = () => (
 	<section id="todoapp">
