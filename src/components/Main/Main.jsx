@@ -1,14 +1,16 @@
 import React from 'react';
 import '../../base.css'; 
 import '../../index.css'; 
-import TodoHeader from '../../containers/TodoHeaderContainer';
+import TodoHeaderContainer from '../../containers/TodoHeaderContainer';
+import TodoListContainer from '../../containers/TodoListContainer';
 
 const Main = () => (
 	<section id="todoapp">
 		<header id="header">
-			<TodoHeader />
+			<TodoHeaderContainer />
 		</header>
 		<section>
+			<TodoListContainer />
 		</section>
 		<footer id="footer">
 		</footer>

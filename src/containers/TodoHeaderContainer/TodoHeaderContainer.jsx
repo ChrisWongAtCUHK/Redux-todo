@@ -11,9 +11,17 @@ export default connect(
 		todo: state.getIn(['todo', 'todo'])
 	}),
 	(dispatch) =>({
-		onChangeTitle: (event) => (
-			dispatch(changeTitle({ title: event.target.value }))
-		),
+		onKeyDown: (event) => {
+			if(event.key === 'Enter'){
+				event.preventDefault();
+
+				dispatch(createTodo());
+				dispatch(changeTitle({ title: '' }));
+			}
+		},
+		onChangeTitle: (event) => {
+			dispatch(changeTitle({ title: event.target.value }));
+		},
 		onCreateTodo: () => (
 			dispatch(createTodo())
 		)

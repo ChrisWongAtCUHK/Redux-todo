@@ -8,7 +8,6 @@ const todoReducers = handleActions({
 		return state.set('todos', todos);
 	},
 	CHANGE_TITLE: (state, { payload }) => {
-		console.log(payload);
 		return state.merge({ 'todo': payload });
 	}
 }, TodoState);
