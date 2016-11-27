@@ -8,5 +8,6 @@ export const TodoState = Immutable.fromJS({
 		id: '',
 		title: '',
 		completed: false
-	}
+	},
+	'editedTodo': {}
 });
