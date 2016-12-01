@@ -16,8 +16,8 @@ export default connect(
 		onDeleteTodo: (index) => () => (
 			dispatch(deleteTodo(index))
 		),
-		onEditTodo: (index) => () => (
-			dispatch(editTodo(index))	
+		onEditTodo: (index, focus) => () => (
+			dispatch(editTodo({index: index, focus: focus}))	
 		),
 		onChangeEdit: (event) => (
 			dispatch(changeEdit({title: event.target.value, key: event.target.getAttribute('data-key')}))	
