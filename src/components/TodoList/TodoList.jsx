@@ -3,6 +3,7 @@ import React from 'react';
 
 const TodoList = ({
 	onToggleCompleted,
+	onToggleCompletedAll,
 	onDeleteTodo,
 	onEditTodo,
 	onSaveEdit,
@@ -34,7 +35,8 @@ const TodoList = ({
 
 	// render
 	return (
-		<section>
+		<section id="main">
+			<input id="toggle-all" type="checkbox" onChange={onToggleCompletedAll} /> 
 			<ul id="todo-list">
 			{
 				todos.map((todo, index) => (

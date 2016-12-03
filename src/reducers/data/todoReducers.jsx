@@ -13,6 +13,29 @@ const todoReducers = handleActions({
 		let todos = state.get('todos').set(payload.key, todo.set('completed', completed));
 		return state.set('todos', todos);
 	},
+	TOGGLE_COMPLETED_ALL: (state, { payload }) => {
+		let todos = state.get('todos');
+
+		// if all todo items are checked, it should be considered to be all unchecked for next
+		let checkedCount = 0;
+		for(let i = 0; i < todos.size; i++){
+			let completed = todos.get(i).get('completed');
+			if(completed){
+				checkedCount++;
+			}
+		}
+		let allChecked = checkedCount === todos.size ? true : false;
+
+		for(let j = 0; j < todos.size; j++){
+			let todo = todos.get(j);
+			let completed = !todo.get('completed');
+			if(completed !== allChecked){
+				todos = todos.set(j, todo.set('completed', completed));
+			}
+		}
+		console.log('tca');		
+		return state.set('todos', todos);
+	},
 	DELETE_TODO: (state, { payload }) => {
 		let todos = state.get('todos').splice(payload, 1);
 		return state.set('todos', todos);

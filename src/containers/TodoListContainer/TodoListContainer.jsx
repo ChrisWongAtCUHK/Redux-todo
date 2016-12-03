@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TodoList from '../../components/TodoList';
-import { toggleCompleted, deleteTodo, editTodo, saveEdit, revertEdit, changeEdit } from '../../actions';
+import { toggleCompleted, toggleCompletedAll, deleteTodo, editTodo, saveEdit, revertEdit, changeEdit } from '../../actions';
 
 export default connect(
 	(state) => ({
@@ -16,6 +16,9 @@ export default connect(
 		},
 		onToggleCompleted: (event) => {
 			dispatch(toggleCompleted({key: event.target.getAttribute('data-key')}));
+		},
+		onToggleCompletedAll: (event) => {
+			dispatch(toggleCompletedAll());
 		},
 		onDeleteTodo: (index) => () => (
 			dispatch(deleteTodo(index))
