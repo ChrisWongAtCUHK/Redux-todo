@@ -19,7 +19,12 @@ export default connect(
 		onEditTodo: (index) => () => (
 			dispatch(editTodo({index: index}))	
 		),
-		onSaveEdit: (index) => () => (
+		onSaveEdit: (event) => {
+			if(event.key === 'Enter'){
+				dispatch(saveEdit());
+			}
+		},
+		onSaveEditByBlur: () => () => (
 			dispatch(saveEdit())	
 		),
 		onChangeEdit: (event) => (

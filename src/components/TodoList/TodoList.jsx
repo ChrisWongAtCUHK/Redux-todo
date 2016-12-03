@@ -5,6 +5,7 @@ const TodoList = ({
 	onDeleteTodo,
 	onEditTodo,
 	onSaveEdit,
+	onSaveEditByBlur,
 	onKeyDown,
 	onChangeEdit,
 	todos,
@@ -44,7 +45,7 @@ const TodoList = ({
 							<button className="destroy" onClick={onDeleteTodo(index)}></button>
 						</div>
 						<input type="text" ref={e => {focus(e)}} className="edit" value={todo.get('title')} data-key={index} 
-							onChange={onChangeEdit} onBlur={onSaveEdit(index)}/>
+							onChange={onChangeEdit} onKeyDown={onSaveEdit} onBlur={onSaveEditByBlur()}/>
 					</li>		
 				)).toJS()
 			}
