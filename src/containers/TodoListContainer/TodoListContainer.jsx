@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TodoList from '../../components/TodoList';
-import { deleteTodo, editTodo, changeEdit } from '../../actions';
+import { deleteTodo, editTodo, saveEdit, changeEdit } from '../../actions';
 
 export default connect(
 	(state) => ({
@@ -18,6 +18,9 @@ export default connect(
 		),
 		onEditTodo: (index) => () => (
 			dispatch(editTodo({index: index}))	
+		),
+		onSaveEdit: (index) => () => (
+			dispatch(saveEdit())	
 		),
 		onChangeEdit: (event) => (
 			dispatch(changeEdit({title: event.target.value, key: event.target.getAttribute('data-key')}))	

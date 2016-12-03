@@ -4,6 +4,7 @@ import React from 'react';
 const TodoList = ({
 	onDeleteTodo,
 	onEditTodo,
+	onSaveEdit,
 	onKeyDown,
 	onChangeEdit,
 	todos,
@@ -42,7 +43,8 @@ const TodoList = ({
 							<label onDoubleClick={onEditTodo(index)}>{todo.get('title')}</label>
 							<button className="destroy" onClick={onDeleteTodo(index)}></button>
 						</div>
-						<input type="text" ref={e => {focus(e)}} className="edit" value={todo.get('title')} data-key={index} onChange={onChangeEdit}/>
+						<input type="text" ref={e => {focus(e)}} className="edit" value={todo.get('title')} data-key={index} 
+							onChange={onChangeEdit} onBlur={onSaveEdit(index)}/>
 					</li>		
 				)).toJS()
 			}
