@@ -7,6 +7,12 @@ const todoReducers = handleActions({
 		let todos = state.get('todos').push(todo);
 		return state.set('todos', todos);
 	},
+	TOGGLE_COMPLETED: (state, { payload }) => {
+		let todo = state.get('todos').get(payload.key);
+		let completed = !todo.get('completed');
+		let todos = state.get('todos').set(payload.key, todo.set('completed', completed));
+		return state.set('todos', todos);
+	},
 	DELETE_TODO: (state, { payload }) => {
 		let todos = state.get('todos').splice(payload, 1);
 		return state.set('todos', todos);

@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const TodoList = ({
+	onToggleCompleted,
 	onDeleteTodo,
 	onEditTodo,
 	onSaveEdit,
@@ -40,7 +41,7 @@ const TodoList = ({
 					<li key={index} 
 							className={`${classNames(todo, editedTodo)}`}>
 						<div className="view">
-							<input className="toggle" type="checkbox" />
+							<input className="toggle" type="checkbox" data-key={index} onChange={onToggleCompleted}/>
 							<label onDoubleClick={onEditTodo(index)}>{todo.get('title')}</label>
 							<button className="destroy" onClick={onDeleteTodo(index)}></button>
 						</div>
