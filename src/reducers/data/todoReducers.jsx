@@ -33,7 +33,6 @@ const todoReducers = handleActions({
 				todos = todos.set(j, todo.set('completed', completed));
 			}
 		}
-		console.log('tca');		
 		return state.set('todos', todos);
 	},
 	DELETE_TODO: (state, { payload }) => {

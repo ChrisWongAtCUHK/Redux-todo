@@ -43,7 +43,7 @@ const TodoList = ({
 					<li key={index} 
 							className={`${classNames(todo, editedTodo)}`}>
 						<div className="view">
-							<input className="toggle" type="checkbox" data-key={index} onChange={onToggleCompleted}/>
+							<input className="toggle" type="checkbox" data-key={index} onChange={onToggleCompleted} checked={todo.get('completed')}/>
 							<label onDoubleClick={onEditTodo(index)}>{todo.get('title')}</label>
 							<button className="destroy" onClick={onDeleteTodo(index)}></button>
 						</div>
