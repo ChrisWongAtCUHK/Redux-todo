@@ -11,7 +11,7 @@ export default connect(
 		todo: state.getIn(['todoReducers', 'todo'])
 	}),
 	(dispatch) =>({
-		onKeyDown: (event) => {
+		onCreateTodo: (event) => {
 			if(event.key === 'Enter'){
 				event.preventDefault();
 
@@ -21,9 +21,6 @@ export default connect(
 		},
 		onChangeTitle: (event) => {
 			dispatch(changeTitle({ title: event.target.value, completed: false }));
-		},
-		onCreateTodo: () => (
-			dispatch(createTodo())
-		)
+		}
 	})
 )(TodoHeader);

@@ -1,11 +1,12 @@
 import React from 'react';
 
 const TodoHeader = ({
-	onKeyDown,
+	onCreateTodo,
 	onChangeTitle,
 	todo
 }) => (
-	<input type="text" id="new-todo" placeholder="Enter Todo List" value={todo.get('title')} onKeyDown={onKeyDown} onChange={onChangeTitle} autoFocus/>
+	<input type="text" id="new-todo" placeholder="Enter Todo List" value={todo.get('title')} 
+		onKeyDown={onCreateTodo} onChange={onChangeTitle} autoFocus/>
 );
 
 export default TodoHeader;
