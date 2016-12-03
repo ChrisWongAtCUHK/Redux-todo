@@ -13,8 +13,6 @@ const todoReducers = handleActions({
 	},
 	EDIT_TODO: (state, { payload }) => {
 		let editedTodo = state.get('todos').get(payload.index);
-		let focus = payload.focus;
-		focus();
 		return state.set('editedTodo', editedTodo);
 	},
 	CHANGE_EDIT: (state, { payload }) => {
