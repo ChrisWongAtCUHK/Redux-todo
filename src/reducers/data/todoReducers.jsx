@@ -13,11 +13,16 @@ const todoReducers = handleActions({
 	},
 	EDIT_TODO: (state, { payload }) => {
 		let editedTodo = state.get('todos').get(payload.index);
-		return state.set('editedTodo', editedTodo);
+		return state.set('editedTodo', editedTodo).set('originalTodo', editedTodo);
 	},
 	SAVE_EDIT: (state, { payload }) => {
 		let editedTodo = state.get('editedTodo').set('title', '');
 		return state.set('editedTodo', editedTodo);					 
+	},
+	REVERT_EDIT: (state, { payload }) => {
+		let originalTodo = state.get('originalTodo');
+		let todos = state.get('todos').set(payload.key, originalTodo);
+		return state.set('todos', todos).set('originalTodo', originalTodo);					 
 	},
 	CHANGE_EDIT: (state, { payload }) => {
 		let todo = state.get('todos').get(payload.key).set('title', payload.title);

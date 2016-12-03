@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import TodoList from '../../components/TodoList';
-import { deleteTodo, editTodo, saveEdit, changeEdit } from '../../actions';
+import { deleteTodo, editTodo, saveEdit, revertEdit, changeEdit } from '../../actions';
 
 export default connect(
 	(state) => ({
 		todos: state.getIn(['todoReducers', 'todos']),
-		editedTodo: state.getIn(['todoReducers', 'editedTodo'])
+		editedTodo: state.getIn(['todoReducers', 'editedTodo']),
+		originalTodo: state.getIn(['todoReducers', 'originalTodo'])
 	}),
 	(dispatch) =>({
 		onKeyDown: (event) => {
@@ -22,6 +23,8 @@ export default connect(
 		onSaveEdit: (event) => {
 			if(event.key === 'Enter'){
 				dispatch(saveEdit());
+			} else if(event.key === 'Escape'){
+				dispatch(revertEdit({key: event.target.getAttribute('data-key')}));
 			}
 		},
 		onSaveEditByBlur: () => () => (
