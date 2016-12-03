@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import Main from './components/Main';
-import store from './store';
+import { browserHistory } from 'react-router';
+
+import Routes from './Routes';
 
 ReactDOM.render(
-  <Provider store={store}>
-		<Main />
-	</Provider>,
+  <Routes history={browserHistory} />,
   document.getElementById('root')
 );
