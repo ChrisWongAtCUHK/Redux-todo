@@ -3,12 +3,12 @@ import Immutable from 'immutable';
 let todos = [];
 
 export const TodoState = Immutable.fromJS({
-	'todos': todos,
-	'todo': {
+	'todos': todos,					// the list of todo items
+	'todo': {								// the todo to be created
 		id: '',
 		title: '',
 		completed: false
 	},
-	'editedTodo': {},
-	'originalTodo': {}
+	'editedTodo': {},				// the todo item being edidted
+	'originalTodo': {}			// the todo item being edited stored in advance 
 });
