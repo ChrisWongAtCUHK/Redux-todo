@@ -8,6 +8,13 @@ const todoReducers = handleActions({
 	// how to create new todo
 	CREATE_TODO: (state) => {
 		let todo = state.get('todo');
+	
+		// do not create todo with empty todo
+		if(todo.get('title').trim() === ''){
+			// do nothing
+			return state;
+		}
+		
 		let todos = state.get('todos').push(todo);
 		return state.set('todos', todos);
 	},
