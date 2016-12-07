@@ -3,6 +3,7 @@ import '../../base.css';
 import '../../index.css'; 
 import TodoHeaderContainer from '../../containers/TodoHeaderContainer';
 import TodoListContainer from '../../containers/TodoListContainer';
+import TodoFooterContainer from '../../containers/TodoFooterContainer';
 
 const Main = () => (
 	<section id="todoapp">
@@ -10,8 +11,7 @@ const Main = () => (
 			<TodoHeaderContainer />
 		</header>
 		<TodoListContainer />
-		<footer id="footer">
-		</footer>
+		<TodoFooterContainer />
 	</section>
 )
 
