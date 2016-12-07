@@ -63,7 +63,7 @@ const todoReducers = handleActions({
 	},
 	// how to save a todo item being edited
 	SAVE_EDIT: (state, { payload }) => {
-		let editedTodo = state.get('editedTodo').set('title', '');
+		let editedTodo = state.get('editedTodo').set('title', '').set('id', '');
 		return state.set('editedTodo', editedTodo);					 
 	},
 	// how to revert a todo item being edited to origial 
