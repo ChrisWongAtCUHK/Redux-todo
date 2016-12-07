@@ -15,7 +15,9 @@ const todoReducers = handleActions({
 			return state;
 		}
 		
-		let todos = state.get('todos').push(todo);
+		let todos = state.get('todos');
+		todo = todo.set('id', todos.size);
+		todos = todos.push(todo);
 		return state.set('todos', todos);
 	},
 	// how to toggle a todo item completed

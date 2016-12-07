@@ -25,9 +25,9 @@ export default connect(
 			dispatch(deleteTodo(index))
 		),
 		// fot the label double click
-		onEditTodo: (index) => () => (
-			dispatch(editTodo({index: index}))	
-		),
+		onEditTodo: (index) => () => {
+			dispatch(editTodo({index: index}));
+		},
 		// for the editing textbox
 		onSaveEdit: (event) => {
 			if(event.key === 'Enter'){

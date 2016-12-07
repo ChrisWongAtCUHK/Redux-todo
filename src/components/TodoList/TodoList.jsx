@@ -21,7 +21,7 @@ const TodoList = ({
 		if(todo.get('completed')){
 			names.push('completed');
 		}
-		if(todo.get('title') === editedTodo.get('title')){
+		if(todo.get('id') === editedTodo.get('id')){
 			names.push('editing');
 		}
 		return names.join(' ');
