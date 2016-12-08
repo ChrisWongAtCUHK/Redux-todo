@@ -1,14 +1,16 @@
 import Immutable from 'immutable';
 
-let todos = [];
+
+export const STORAGE_ID = 'redux-todo';
 
 export const TodoState = Immutable.fromJS({
-	'todos': todos,					// the list of todo items
+	'todos': [],					// the list of todo items
 	'todo': {								// the todo to be created
 		id: '',
 		title: '',
 		completed: false
 	},
 	'editedTodo': {},				// the todo item being edidted
-	'originalTodo': {}			// the todo item being edited stored in advance 
+	'originalTodo': {},			// the todo item being edited stored in advance 
+	'selectedStatus' : ''		// status : active, completed
 });

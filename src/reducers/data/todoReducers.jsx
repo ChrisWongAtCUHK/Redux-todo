@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { TodoState } from '../../constants/model.jsx';
+import { STORAGE_ID, TodoState } from '../../constants/model.jsx';
 
 /*
  * Handle all actions
@@ -18,6 +18,10 @@ const todoReducers = handleActions({
 		let todos = state.get('todos');
 		todo = todo.set('id', todos.size);
 		todos = todos.push(todo);
+		
+		// store into local storage(html5)
+		localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
+
 		return state.set('todos', todos);
 	},
 	// how to toggle a todo item completed
