@@ -18,10 +18,8 @@ const todoReducers = handleActions({
 		
 		let todos = state.get('todos');
 		todo = todo.set('id', todos.size);
-		todos = getLSTodos(todos, todo);
-
-		console.log(todos);
-		
+		todos = getLSTodos(todos);
+		todos = todos.push(todo);
 		setLSTodos(todos);
 
 		return state.set('todos', todos);
@@ -59,7 +57,10 @@ const todoReducers = handleActions({
 	},
 	// how to delete a todo item
 	DELETE_TODO: (state, { payload }) => {
-		let todos = state.get('todos').splice(payload, 1);
+		let todos = state.get('todos');
+		todos = getLSTodos(todos);
+		todos = todos.splice(payload, 1);
+		setLSTodos(todos);
 		return state.set('todos', todos);
 	},
 	// how to kick off the edit of a todo item
