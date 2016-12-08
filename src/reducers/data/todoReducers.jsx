@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions';
-import { getLSTodos, setLSTodos, TodoState } from '../../constants/model.jsx';
+import { getLSTodos, setLSTodos } from '../../constants/localStorage.jsx';
+import {  TodoState } from '../../constants/model.jsx';
 
 /*
  * Handle all actions
