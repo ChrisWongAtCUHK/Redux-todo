@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { STORAGE_ID, TodoState } from '../../constants/model.jsx';
+import { getLSTodos, setLSTodos, TodoState } from '../../constants/model.jsx';
 
 /*
  * Handle all actions
@@ -17,10 +17,11 @@ const todoReducers = handleActions({
 		
 		let todos = state.get('todos');
 		todo = todo.set('id', todos.size);
-		todos = todos.push(todo);
+		todos = getLSTodos(todos, todo);
+
+		console.log(todos);
 		
-		// store into local storage(html5)
-		localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
+		setLSTodos(todos);
 
 		return state.set('todos', todos);
 	},
