@@ -6,7 +6,8 @@ import TodoFooter from '../../components/TodoFooter';
  * */
 export default connect(
 	(state) => ({
-		todos: state.getIn(['todoReducers', 'todos'])
+		todos: state.getIn(['todoReducers', 'todos']),
+		selectedStatus: state.getIn(['todoReducers', 'selectedStatus'])
 	}),
 	(dispatch) =>({
 	})

@@ -1,13 +1,34 @@
 import { connect } from 'react-redux';
 import TodoList from '../../components/TodoList';
 import { toggleCompleted, toggleCompletedAll, deleteTodo, editTodo, saveEdit, revertEdit, changeEdit } from '../../actions';
+import { STORAGE_ID } from '../../constants/model.jsx';
+
+/*
+ * Get the todos from local storage(html5)
+ * */
+function getTodos(state){
+	let todos = state.getIn(['todoReducers', 'todos']);
+	
+	let storage = JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
+	console.log(storage);
+	/*
+	for(let i = 0; i < storage.length; i++){
+		let todo = state.getIn(['todoReducers', 'todo']);
+		todo = todo.set('title', storage[i].title)
+								.set('completed', storage[i].completed)
+								.set('id', storage[i].id);
+		todos = todos.push(todo);
+	}
+	*/
+	return todos;
+}
 
 /*
  * Connect to Todo list component
  * */
 export default connect(
 	(state) => ({
-		todos: state.getIn(['todoReducers', 'todos']),
+		todos: getTodos(state),
 		editedTodo: state.getIn(['todoReducers', 'editedTodo']),
 		originalTodo: state.getIn(['todoReducers', 'originalTodo'])
 	}),
