@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import TodoList from '../../components/TodoList';
 import { toggleCompleted, toggleCompletedAll, deleteTodo, editTodo, saveEdit, revertEdit, changeEdit } from '../../actions';
-import { initLSTodos } from '../../constants/model.jsx';
+import { initLSTodos } from '../../constants/localStorage.jsx';
 
 
 /*
