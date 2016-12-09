@@ -14,7 +14,7 @@ export default connect(
 	(dispatch) =>({
 		// 
 		onChangeStatus: (s) => () => {
-			dispatch(changeStatus({ selectedStatus: s }));
+			dispatch(changeStatus({ s }));
 		},
 	})
 )(TodoFooter);

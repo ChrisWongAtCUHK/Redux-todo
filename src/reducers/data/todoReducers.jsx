@@ -98,7 +98,7 @@ const todoReducers = handleActions({
 	},
 	// how to change the selected status
 	CHANGE_STATUS: (state, { payload }) => {
-		return state.set('selectedStatus', payload);
+		return state.set('selectedStatus', payload.s);
 	}
 }, TodoState);
 
