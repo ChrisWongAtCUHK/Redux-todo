@@ -29,7 +29,6 @@ const todoReducers = handleActions({
 		let todo = todos.get(payload.key);
 		let completed = !todo.get('completed');
 		todos = todos.set(payload.key, todo.set('completed', completed));
-		console.log(todos.get(payload.key).get('completed'));
 		return state.set('todos', todos);
 	},
 	// how to toggle all todo items completed
