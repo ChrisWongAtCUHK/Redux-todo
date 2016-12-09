@@ -17,11 +17,11 @@ const todoReducers = handleActions({
 		}
 		
 		let todos = getLSTodos(state);
+		console.log(todos);
 		todo = todo.set('id', todos.size);
 		todos = todos.push(todo);
-		setLSTodos(todos);
 
-		return state.set('todos', todos);
+		return setLSTodos(state, todos);
 	},
 	// how to toggle a todo item completed
 	TOGGLE_COMPLETED: (state, { payload }) => {
