@@ -18,7 +18,7 @@ const TodoFooter = ({
 				<a onClick={onChangeStatus('active')} className={(selectedStatus === 'active') ? 'selected': ''} href="#/">Active</a>
 			</li>
 			<li>
-				<a onClick={onChangeStatus('completed')} className={(selectedStatus === 'completed') ? 'selected': ''} href="#/">Active</a>
+				<a onClick={onChangeStatus('completed')} className={(selectedStatus === 'completed') ? 'selected': ''} href="#/">Completed</a>
 			</li>
 		</ul>
 	</footer>

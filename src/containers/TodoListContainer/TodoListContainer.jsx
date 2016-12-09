@@ -11,7 +11,8 @@ export default connect(
 	(state) => ({
 		todos: initLSTodos(state.getIn(['todoReducers', 'todos']),state.getIn(['todoReducers', 'todo'])),
 		editedTodo: state.getIn(['todoReducers', 'editedTodo']),
-		originalTodo: state.getIn(['todoReducers', 'originalTodo'])
+		originalTodo: state.getIn(['todoReducers', 'originalTodo']),
+		selectedStatus: state.getIn(['todoReducers', 'selectedStatus'])
 	}),
 	(dispatch) =>({
 		// for the checkbox to toggle completed

@@ -12,7 +12,8 @@ const TodoList = ({
 	onSaveEditByBlur,
 	onChangeEdit,
 	todos,
-	editedTodo
+	editedTodo,
+	selectedStatus
 }) => {
 
 	// The class names for the list item
@@ -25,6 +26,25 @@ const TodoList = ({
 			names.push('editing');
 		}
 		return names.join(' ');
+	};
+
+	// Filter by active and completed
+	const statusFilter = (todo, selectedStatus) => {
+		let show = { display: 'block' };
+		let hide = { display: 'none' };
+		let completed = todo.get('completed');
+		switch(selectedStatus){
+			case 'active':
+				if(completed)	return hide;
+				else return show;
+			
+			case 'completed':
+				if(completed)	return show;
+				else return hide;
+			
+			default:
+				return show;
+		}
 	};
 
 	// Focus on the element who pass them self
@@ -43,7 +63,7 @@ const TodoList = ({
 				todos.map((todo, index) => (
 					// its class with 'editing' would enable the edit of 'edit' textbox
 					<li key={index} 
-							className={`${classNames(todo, editedTodo)}`}>
+							className={`${classNames(todo, editedTodo)}`} style={statusFilter(todo, selectedStatus)}>
 						<div className="view">
 							<input className="toggle" type="checkbox" data-key={index} onChange={onToggleCompleted} checked={todo.get('completed')}/>
 							<label onDoubleClick={onEditTodo(index)}>{todo.get('title')}</label>
