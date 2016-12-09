@@ -4,6 +4,7 @@ import React from 'react';
  * Todo footer component
  * */
 const TodoFooter = ({
+	onChangeStatus,
 	todos,
 	selectedStatus
 }) => (
@@ -11,13 +12,13 @@ const TodoFooter = ({
 			<span id="todo-count"><strong>{todos.size}</strong>{(todos.size === 1) ? ' item left' : ' items left'}</span>
 			<ul id="filters">
 				<li>
-					<a href="/">All</a>
+					<a href="#/">All</a>
 				</li>
 				<li>
-					<a href="/">Active</a>
+					<a onClick={onChangeStatus('active')} href="#/">Active</a>
 				</li>
 				<li>
-					<a href="/">Completed</a>
+					<a href="#/">Completed</a>
 				</li>
 			</ul>
 		</footer>
