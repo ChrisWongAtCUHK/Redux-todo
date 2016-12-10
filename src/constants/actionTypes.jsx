@@ -8,3 +8,4 @@ export const REVERT_EDIT = 'REVERT_EDIT';
 export const CHANGE_EDIT = 'CHANGE_EDIT';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const CHANGE_STATUS = 'CHANGE_STATUS';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';

@@ -17,7 +17,6 @@ const todoReducers = handleActions({
 		}
 		
 		let todos = getLSTodos(state);
-		console.log(todos);
 		todo = todo.set('id', todos.size);
 		todos = todos.push(todo);
 
@@ -29,7 +28,7 @@ const todoReducers = handleActions({
 		let todo = todos.get(payload.key);
 		let completed = !todo.get('completed');
 		todos = todos.set(payload.key, todo.set('completed', completed));
-		return state.set('todos', todos);
+		return setLSTodos(state, todos);
 	},
 	// how to toggle all todo items completed
 	TOGGLE_COMPLETED_ALL: (state, { payload }) => {
@@ -98,6 +97,19 @@ const todoReducers = handleActions({
 	// how to change the selected status
 	CHANGE_STATUS: (state, { payload }) => {
 		return state.set('selectedStatus', payload.s);
+	},
+	// how to clear completed todos
+	CLEAR_COMPLETED: (state, { payload }) => {
+		let todos = getLSTodos(state);
+		let incompletedTodos = state.get('todos').clear();
+		for(var i = 0; i < todos.size; i++){
+			let todo = todos.get(i);
+			//console.log(todo.get('title') + ':' + todo.get('completed'));
+			if(todo.get('completed') === false){
+				incompletedTodos = incompletedTodos.push(todo); 
+			}
+		}
+		return setLSTodos(state, incompletedTodos);
 	}
 }, TodoState);
 

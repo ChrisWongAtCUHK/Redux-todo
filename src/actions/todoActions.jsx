@@ -9,7 +9,8 @@ import {
 	REVERT_EDIT,
 	CHANGE_EDIT,
 	CHANGE_TITLE,
-	CHANGE_STATUS
+	CHANGE_STATUS,
+	CLEAR_COMPLETED
 } from '../constants/actionTypes.jsx';
 
 export const createTodo = createAction(CREATE_TODO);
@@ -22,3 +23,4 @@ export const revertEdit = createAction(REVERT_EDIT);
 export const changeEdit = createAction(CHANGE_EDIT);
 export const changeTitle = createAction(CHANGE_TITLE);
 export const changeStatus = createAction(CHANGE_STATUS);
+export const clearCompleted = createAction(CLEAR_COMPLETED);

@@ -5,6 +5,7 @@ import React from 'react';
  * */
 const TodoFooter = ({
 	onChangeStatus,
+	onClearCompleted,
 	todos,
 	selectedStatus
 }) => (
@@ -21,6 +22,9 @@ const TodoFooter = ({
 				<a onClick={onChangeStatus('completed')} className={(selectedStatus === 'completed') ? 'selected': ''} href="#/">Completed</a>
 			</li>
 		</ul>
+		<button id="clear-completed" onClick={onClearCompleted} style={(todos.size > 0) ? {display: 'block'} : {display: 'none'}}>
+			Clear completed
+		</button>
 	</footer>
 );
 
